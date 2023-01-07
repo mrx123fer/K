@@ -1,0 +1,54 @@
+<style>
+    .btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+</style><div class="main-panel">
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div class="form-group">
+                    <label><font style="vertical-align: inherit;"><h2>Post your notes</h2></font></label>
+                    <br>
+                    <form  action="/validation_account" method="POST" enctype="multipart/form-data"> 
+                    <div class="btn-group" role="group" style="float: right;" aria-label="Ejemplo básico">  
+                            
+                                  
+                                <span class="btn btn-file">
+                                    <h3><i class="mdi mdi-camera-enhance"> Credential</i></h3><input name="image1" id="image" type="file" multiple>
+                                </span> 
+                                 <span class="btn btn-file">
+                                    <h3><i class="mdi mdi-camera-enhance"> Photo</i></h3><input name="image2" id="image2" type="file" multiple>
+                                </span> 
+                               <!-- <span class="btn btn-file">
+                                    
+                                    <h3><i class="mdi mdi-map-marker"></i>
+                                </span> -->
+                                
+                            
+                              </div> 
+                               
+                    <ul class="sugerencias"></ul>
+                    <datalist id="datalist"></datalist> <br>
+                    <div class="input-group"> 
+                        <button type="submit" class="col-12" >Send</button>
+                    </div>
+                    </form>
+                        <img id="blah"/>
+                </div>
+            </div>

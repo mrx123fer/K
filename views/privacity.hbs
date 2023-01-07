@@ -1,0 +1,232 @@
+<style>
+  :root {
+    --color-green: #00a878;
+    --color-red: #fe5e41;
+    --color-button: #fdffff;
+    --color-black: #000;
+}
+.switch-button {
+    display: inline-block;
+}
+.switch-button .switch-button__checkbox {
+    display: none;
+}
+.switch-button .switch-button__label {
+    background-color: var(--color-red);
+    width: 4rem;
+    height: 2rem;
+    border-radius: 3rem;
+    display: inline-block;
+    position: relative;
+}
+.switch-button .switch-button__label:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-button);
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label {
+    background-color: var(--color-green);
+}
+.switch-button .switch-button__checkbox:checked + .switch-button__label:before {
+    transform: translateX(2rem);
+}
+/**/
+.switch-button2 {
+    display: inline-block;
+}
+.switch-button2 .switch-button__checkbox2 {
+    display: none;
+}
+.switch-button2 .switch-button__label2 {
+    background-color: var(--color-red);
+    width: 4rem;
+    height: 2rem;
+    border-radius: 3rem;
+    display: inline-block;
+    position: relative;
+}
+.switch-button2 .switch-button__label2:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-button);
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+.switch-button2 .switch-button__checkbox2:checked + .switch-button__label2 {
+    background-color: var(--color-green);
+}
+.switch-button2 .switch-button__checkbox2:checked + .switch-button__label2:before {
+    transform: translateX(2rem);
+}/**/
+.switch-button3 {
+    display: inline-block;
+}
+.switch-button3 .switch-button__checkbox3 {
+    display: none;
+}
+.switch-button3 .switch-button__label3 {
+    background-color: var(--color-red);
+    width: 4rem;
+    height: 2rem;
+    border-radius: 3rem;
+    display: inline-block;
+    position: relative;
+}
+.switch-button3 .switch-button__label3:before {
+    transition: .2s;
+    display: block;
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--color-button);
+    content: '';
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 0px 1px var(--color-black);
+}
+.switch-button3 .switch-button__checkbox3:checked + .switch-button__label3 {
+    background-color: var(--color-green);
+}
+.switch-button3 .switch-button__checkbox3:checked + .switch-button__label3:before {
+    transform: translateX(2rem);
+}
+</style>
+<div class="main-panel">
+    <div class="col-md-12">
+        <br>
+         <div>
+            <h1>
+                <a href="/account_settings"><label class="mdi mdi-keyboard-backspace"></label> </a>
+                  Privacity 
+            </h1>
+            
+            
+        </div>
+        <div class="table-responsive">
+
+            <table class="table"> 
+                    <tbody>
+                          <tr>
+                            <td></td>
+                            <td>
+                              <div class="switch-button">
+                                <!-- Checkbox --> 
+                                  <input type="checkbox" id="switch-label" name="switch-button"class="switch-button__checkbox"> 
+                                <!-- Botón -->
+                                <label for="switch-label" class="switch-button__label"></label>
+                              </div>
+                            </td>
+                            <td>Show my birtday</td>
+                          </tr>   
+                          <tr>
+                            <td></td>
+                            <td>
+                              <div class="switch-button2">
+                                <!-- Checkbox -->
+                                <input type="checkbox" name="switch-button2" id="switch-label2" class="switch-button__checkbox2">
+                                <!-- Botón -->
+                                <label for="switch-label2" class="switch-button__label2"></label>
+                              </div>
+                            </td>
+                            <td>Show my register day</td>
+                          </tr> 
+                          <tr>
+                            <td></td>
+                            <td>
+                              <div class="switch-button3">
+                                <!-- Checkbox -->
+                                <input type="checkbox" name="switch-button3" id="switch-label3" class="switch-button__checkbox3">
+                                <!-- Botón -->
+                                <label for="switch-label3" class="switch-button__label3"></label>
+                              </div>
+                            </td>
+                            <td>Show comments<br><small>Si desactiva esta opcion, no podra ver <br> los comentarios de los demas</small></td>
+                          </tr> 
+                          <tr>
+                            <td></td>
+                            <td>
+                              <a href="/terms">Terminos</a>
+                            </td>
+                            <td> </td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td>
+                              <a href="/conditions">Condiciones</a>
+                            </td>
+                            <td> </td>
+                          </tr> 
+                                                   
+                        </tbody>
+                      </table>
+                    </div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script>  
+                      check()
+                      function check(){
+                        var checkbox = document.getElementById('switch-label'), checkbox2 = document.getElementById('switch-label2'), checkbox3 = document.getElementById('switch-label3');
+                        $.ajax({ 
+                          url : '/privacity/checked',  
+                          type : 'GET', 
+                          dataType : 'json', 
+                          success : function(json) {
+                            checkbox.checked=json.age 
+                            checkbox2.checked=json.dataAge
+                            checkbox3.checked=json.comment
+                          }, 
+                          error : function(xhr, status) {
+                              alert('Existió un problema');
+                          }
+                        });
+                        checkbox.addEventListener( 'change', function() {
+                          if(checkbox.checked==false) {
+
+                            $.post('/setting/birtday/no_show')
+                            .done(data=>{  
+                              checkbox.checked=data.age
+                            })
+                          }else if(checkbox.checked==true){
+                            $.post('/setting/birtday/show')
+                            .done(data=>{ 
+                              checkbox.checked=data.age 
+                            })
+                          }
+                        });
+                        checkbox2.addEventListener( 'change', function() { 
+                          if(checkbox2.checked==false) {
+
+                            $.post('/setting/data_register/no_show')
+                            .done(data=>{  
+                              checkbox2.checked=data.dataAge
+                            })
+                          }else if(checkbox2.checked==true){
+                            $.post('/setting/data_register/show')
+                            .done(data=>{ 
+                              checkbox2.checked=data.dataAge
+                            })
+                          }
+                        });
+                        checkbox3.addEventListener( 'change', function() {
+                          if(checkbox3.checked==false) { 
+                            $.post('/setting/comment/no_show')
+                            .done(data=>{  
+                              checkbox3.checked=data.comment
+                            })
+                          }else if(checkbox3.checked==true){
+                            $.post('/setting/comment/show')
+                            .done(data=>{ 
+                              checkbox3.checked=data.comment
+                            })
+                          }
+                        });
+                      } 
+                    </script>

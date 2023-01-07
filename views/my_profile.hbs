@@ -1,0 +1,591 @@
+
+<style type="text/css"> 
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: #404040;
+    font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
+}
+
+/*=====================================
+estilos de la utilidad
+Copiar esto
+=====================================*/
+.seccion-perfil-usuario .perfil-usuario-body,
+.seccion-perfil-usuario {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccion-perfil-usuario .perfil-usuario-header {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 1.25rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 17rem;
+    border-radius: 0 0 20px 20px; 
+    background-image: url('/images/perro.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
+    position: absolute; 
+    right: 1px; 
+    border-radius: 8px; 
+    background-color: rgba(0, 0, 0, 0.233);
+    color: #fff;
+    cursor: pointer;
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada .boton-portada i {
+    margin-right: 1rem;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    position: absolute;
+    bottom: -40px;
+    left: calc(50% - 90px);
+    z-index: 1;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar img {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body {
+    width: 70%;
+    position: relative;
+    max-width: 750px;
+}
+
+.seccion-perfil-usuario .perfil-usuario-body .titulo {
+    display: block;
+    width: 100%;
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+}
+.titulo2{
+    display: block; 
+    font-size: 1.75em;
+    margin-bottom: 0.5rem;
+}
+.seccion-perfil-usuario .perfil-usuario-body .texto {
+    color: #ffffff;
+    font-size: 0.95em;
+    
+}
+
+.seccion-perfil-usuario .perfil-usuario-footer,
+.seccion-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2); 
+    border-radius: 15px;
+    width: 100%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-bio {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.seccion-perfil-usuario .lista-datos {
+    width: 50%;
+    list-style: none;
+}
+
+.seccion-perfil-usuario .lista-datos li {
+    padding: 5px 0;
+}
+
+.seccion-perfil-usuario .lista-datos li>.icono {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    vertical-align: middle;
+}
+
+.seccion-perfil-usuario .redes-sociales {
+    position: absolute;
+    right: calc(0px - 50px - 1rem);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.seccion-perfil-usuario .redes-sociales .boton-redes {
+    border: 0;
+    background-color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
+    font-size: 1.3rem;
+}
+
+.seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
+    margin-top: .5rem;
+}
+
+.seccion-perfil-usuario .boton-redes.facebook {
+    background-color: #5955FF;
+}
+
+.seccion-perfil-usuario .boton-redes.twitter {
+    background-color: #35E1BF;
+}
+
+.seccion-perfil-usuario .boton-redes.instagram {
+    background: linear-gradient(45deg, #FF2DFD, #40A7FF);
+}
+
+/* adactacion a dispositivos */
+@media (max-width: 750px) {
+    .seccion-perfil-usuario .lista-datos {
+        width: 100%;
+    }
+
+    .seccion-perfil-usuario .perfil-usuario-portada,
+    .seccion-perfil-usuario .perfil-usuario-body {
+        width: 95%;
+    }
+
+    .seccion-perfil-usuario .redes-sociales {
+        position: relative;
+        flex-direction: row;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        justify-content: center
+    }
+
+    .seccion-perfil-usuario .redes-sociales .boton-redes+.boton-redes {
+        margin-left: 1rem;
+        margin-top: 0;
+    }
+}
+    .btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+} 
+</style>
+    <!--==========================
+=            html            =
+===========================-->
+<div class="main-panel">
+    <input type="hidden" id="userr" value="{{user.user}}">
+       <div class="container">
+         <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+
+                <div class="perfil-usuario-avatar">
+                    
+                    <form id="form_d" action="/change_profile" method="POST" enctype="multipart/form-data"> 
+                        <img src="/data_files_/{{user.user}}/Images/{{user.photo}}" id="imagenPrevisualizacion" alt="img-avatar">
+                        
+                        <button type="submit" class="boton-avatar">
+                            <span class="btn btn-file">
+                                <h3 style="color:#000;"><i class="mdi mdi-camera-iris"></i></h3><input name="profile" id="profile" type="file" multiple>
+                            </span>
+                        </button>
+                        
+                    
+                    <script>
+                        const $seleccionArchivos = document.querySelector("#profile"),
+                              $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
+                        $seleccionArchivos.addEventListener("change", () => {
+                            // Los archivos seleccionados, pueden ser muchos o uno
+                            const archivos = $seleccionArchivos.files;
+                            // Si no hay archivos salimos de la función y quitamos la imagen
+                            if (!archivos || !archivos.length) {
+                                $imagenPrevisualizacion.src = "";
+                                return;
+                            }
+                        // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+                        const primerArchivo = archivos[0];
+                        // Lo convertimos a un objeto de tipo objectURL
+                        const objectURL = URL.createObjectURL(primerArchivo);
+                        // Y a la fuente de la imagen le ponemos el objectURL
+                        $imagenPrevisualizacion.src = objectURL;
+                        document.getElementById('message_confirmation_profile').style.display=''
+                    });
+
+                    </script>
+                </div>
+                
+                <button type="button" class="boton-portada"> 
+                      <span class="btn btn-file">
+                    <h3><i class="mdi mdi-camera-iris"></i></h3><input name="archive" id="archive" type="file" multiple>  
+                </span>
+                </button>
+            </div>
+        </div>
+        <div class="perfil-usuario-body"  style="color: rgb(0, 0, 0);">
+            <div class="perfil-usuario-bio " style="">
+                <div id="message_confirmation_profile" style="display: none;">
+                    <p>¿Te gusta para guardar como tu nuevo perfi?</p>
+                    <button type="button" onclick="btn_yes()" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yes</font></font></button><br><br>
+                    <button type="button" id="btn_no" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">No</font></font></button><br><br>
+                    <button type="button" id="btn_edit" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></button>
+                    <br><br>
+                </div>
+                <script>
+                    const publication = {};
+                      
+                        function btn_yes(){
+                            console.log('Ho')
+                            publication.image = document.getElementById('profile').files[0]
+                            publication.user = document.getElementById('userr').value
+                            localStorage.setItem("publication", JSON.stringify(publication)); 
+                            document.getElementById('message_confirmation_profile').style.display='none'
+                            document.getElementById('message_description').style.display='' 
+                        }
+                </script>
+                <div id="message_description" style="display: none;">
+                    <p>Description</p>
+                    <textarea name="description_photo" id="description_photo"  rows="5"></textarea>
+                    <button type="button" onclick="btn_continue()" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Continue</font></font></button><br><br>
+                    <button type="button" id="btn_cancel" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancel</font></font></button><br><br>
+                </div>
+                <script>
+                    function btn_continue(){
+                        let publication = JSON.parse(localStorage.getItem("publication")); 
+                        publication.description=document.getElementById('description_photo').value;
+                        localStorage.setItem("publication", JSON.stringify(publication));  
+                        document.getElementById('message_description').style.display='none'
+                        document.getElementById('message_ubication').style.display=''
+                    }
+                </script>
+                <div id="message_ubication" style="display: none;">
+                    <p>¿Donde estas?</p>  
+                        <input type="text" id="ubication" name="ubication" > 
+                          
+                    <button type="submit" onclick="btn_continue_2()" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Publicate</font></font></button><br><br>
+                    <button type="button" id="btn_cancel_2" class="btn btn-inverse-success btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cancel</font></font></button><br><br>
+                </div>
+                <script> 
+                     $("#frmFormulario").submit(function (e) {
+                        e.preventDefault();
+                        console.log('Hola')
+                        let publication = JSON.parse(localStorage.getItem("publication")); 
+                        publication.ubication=document.getElementById('ubication').value;
+                        localStorage.setItem("publication", JSON.stringify(publication));  
+                        document.getElementById('message_description').style.display='none' 
+                        console.log(publication)
+                        $.post('/change_profile',publication,()=>{
+ 
+                        }) 
+                        .done(data=>{ 
+                        if(data.status==true){  
+                             alert('Se logro')
+
+                        }else if (data.status==false){
+                             alert('Fallo')
+                        }
+                        })
+                        .fail(function(err) {
+                            console.log( err );
+                            alert('err')
+                        })
+                    } )
+                </script>
+                </form>
+                <h5 class="titulo">{{user.name }} {{user.lastname}}</h5>
+                <a class="titulo2" href="/edit_description"><label class="mdi mdi-border-color"></label></a><p class="texto" style="text-align: center;color:#000;">{{user.description}}.</p>
+            </div>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li ><a href=""><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-map-signs"></i> {{user.user}}</li>
+                    <li><a href="/edit_phone" style="text-align: right;"><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-phone-alt"></i>{{user.phone}}</li>
+                    <li><a href="/edit_work" style="text-align: right;"><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-briefcase"></i>{{user.work}}</li>
+                    <li><a href="/edit_ocupation" style="text-align: right;"><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-building"></i>{{ user.ocupation}}</li>
+                </ul>
+    
+    
+                <ul class="lista-datos">
+                    <li><a href="/edit_direction" style="text-align: right;"><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-map-marker-alt"></i> <b>{{user.direction.country}} - {{user.direction.state}}. {{user.direction.municipality}}</b></li>
+                    <li><a href="/edit_birtday" style="text-align: right;"><label class="mdi mdi-border-color"></label></a> <i class="icono fas fa-calendar-alt"></i> {{user.birtday}}</li>
+                    {{#switch user.validation}} 
+                        {{#case true}}
+                            <li><i class="icono fas fa-user-check"></i> <i class="mdi verificación de cuenta mdi">Your account is verified</i></li>
+                        {{/case}} 
+                        {{#case false}}
+                            <li><i class="mdi mdi-account-remove"></i> <i class="mdi verificación de cuenta mdi"> You are not verified <a href="/verify_my_account">Click here</a></li>
+                        {{/case}}  
+                    {{/switch}}
+                     
+                </ul>
+            </div>
+
+<!-- 
+    ==============SCRIPT============
+-->
+<script>
+        window.fbAsyncInit = function() {
+            FB.init({
+            appId      : '813532576575774',
+            cookie     : true,
+            xfbml      : true,
+            version    : 'v15.0'
+            });
+            
+            FB.AppEvents.logPageView();   
+            
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function onLogin(){
+            FB.login((response)=>{
+                if(response.authResponse){
+                    FB.api('/me?fields=first_name,last_name,picture,email,link',(response)=>{
+                       console.log(response) 
+                       dat={};
+                       dat.id=response.id;
+                       dat.name=response.first_name;
+                       dat.lastName=response.last_name;
+                       dat.email=response.email;
+                       dat.photo=response.picture.data.url;
+                       dat.link=response.link;
+                       $.post('/connect_facebook_api',dat,()=>{
+
+                        }) 
+                        .done(data=>{ 
+                        if(data.status==true){  
+                            alert('Realizado')
+                        }else if (data.status==false){ 
+                            alert('Error')
+                        }
+                        })
+                        .fail(function() {
+                            alert( "error" );
+                        })
+                    })
+                }
+            })
+        }
+</script>
+<!-- 
+    ============== END SCRIPT ============
+-->
+
+            <div class="redes-sociales">
+                {{#switch user.facebook.status}} 
+                        {{#case true}} 
+                            <a href="{{user.facebook.user_link}}"  class="boton-redes facebook fab fa-facebook-f"> <i class="mdi mdi-facebook"></i></a>
+                        {{/case}} 
+                        {{#case false}}
+                            <a onclick="onLogin()" class="boton-redes facebook fab fa-facebook-f"> <i class="mdi mdi-facebook"></i></a>
+                        {{/case}} 
+                        {{#case null}}
+                            <a onclick="onLogin()" class="boton-redes facebook fab fa-facebook-f"> <i class="mdi mdi-facebook"></i></a>
+                        {{/case}} 
+                    {{/switch}} 
+                
+                <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+            </div>
+        </div> 
+        
+{{#each publications}}
+<div class="card">
+    <div class="card-body" style=" border-radius: 2px;"> 
+        <a href="/profile/{{idUser.user}}/{{idUser._id}}">
+            <img class="img-xs rounded-circle " src="/data_files_/{{idUser.user}}/Images/{{idUser.photo}}" alt="">
+            <span class="count bg-success"></span> 
+        </a>
+    <div class="dropdown show"  style="position: relative; float: right;">  
+        <button type="button" class="btn btn-xs btn-success dropdown-toggle" id="dropdownMenuIconButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="mdi mdi-heart"></i>
+        </button> 
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2" style="">  
+        <a class="dropdown-item" href="/publication/privacity/{{_id}}/1">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                Public
+                {{#if privacity.public}}
+                    <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                {{/if}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/publication/privacity/{{_id}}/2">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    My public
+                    {{#if privacity.my_public}}
+                        <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                    {{/if}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/publication/privacity/{{_id}}/3">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    Private (Just me) 
+                    {{#ifE privacity.private}}
+                        <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                    {{/ifE}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/edit_publication/{{_id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></a> 
+        <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/report_publication/{{_id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reportar</font></font></a>
+            
+            <a class="dropdown-item" href="/delete_publication/{{_id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remove</font></font></a>
+        </div> 
+    </div>
+    <br>  
+    <div class="row">
+      <a href="/profile/{{idUser.user}}/{{idUser._id}}"><font style="font-size: 10px; color:#000;">{{idUser.name}} {{idUser.lastname}}</font></a>
+    </div>    
+    <button style="position: relative; float: right;"class="btn p-0" type="button" id="cardOpt6"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <br><br><a href="/koopus/publication/{{_id}}">
+      <div class="slider-container">   
+        {{#each archive.images}}
+          <img
+            class="slider-item" 
+            src="{{this}}" alt="1"
+          />
+        {{/each}} <br><br> 
+      </div>  
+    </a> 
+    <p>{{description}}</p><font style="font-size: 10px; color:#000;">{{timeago datepublication}}</font>
+</div>  
+<div class="btn-group" role="group" aria-label="Ejemplo básico">
+  <button type="button" class="btn btn-outline-secondary">
+    <i class="mdi mdi-heart-outline"></i>
+  </button>
+    <a href="/koopus/publication/{{_id}}">
+      <button type="button" class="btn btn-outline-secondary">
+        <i class="mdi mdi-comment-text"></i>
+      </button>
+    </a>
+ <button type="button" class="btn btn-outline-secondary">
+    <i class="mdi mdi-clock"></i>
+  </button>
+  <br>
+</div>
+<form action="/publication/{{_id}}/comment"  method="POST">
+    <div class="input-group"> 
+        <input type="text" name="comment" class="form-control" placeholder="Your comment" aria-label="Nombre de usuario">
+        <button type="submit" class="btn btn-inverse-success btn-icon">
+            <i class="mdi mdi-send"></i>
+        </button>
+    </div> 
+</form> 
+      <br><!--================PUBLICATIONS================-->
+<style>
+  .slider-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  overflow-x: scroll
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-type: x mandatory;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-align: center;
+}
+.form-control{
+  background-color: rgb(255, 255, 255);
+  border: rgba(0, 0, 0, 0);
+}
+</style> 
+{{/each}}   
+
+</div>
+       </div>
+<!--====  End of tarjeta  ====--> 
+</div>

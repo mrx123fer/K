@@ -1,0 +1,28 @@
+<div class="main-panel">
+  <div class="container"><br>
+    <a href="/tool/generate_qr"><label class="mdi mdi-keyboard-backspace"></label> </a>
+        <h2 class="text-center">QR EDIT</h2> 
+        <br>
+   <div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Description</th>
+        <th>QR</th> 
+      </tr>
+    </thead>
+    <tbody>
+      {{#each qr}}
+      <tr>
+        <td><a href="/edit_qr/{{id}}" ><i class="mdi mdi-grease-pencil"></i></a></td>
+        <td><p><h7>{{description}}</h7></p></td>
+        <td><img src="{{qr}}"  alt=""></td>
+        <td><a href="{{qr}}" download="{{name}}.png"><i class="mdi mdi-download"></i></a></td>  
+      </tr> 
+      {{/each}}
+    </tbody>
+  </table>     
+</div>
+  </div>
+</div>

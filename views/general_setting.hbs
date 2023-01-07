@@ -1,0 +1,39 @@
+
+<div class="main-panel">
+    <div class="col-md-12">
+        <br>
+         <div>
+            <h1>
+                <a href="/account_settings"><label class="mdi mdi-keyboard-backspace"></label> </a>
+                  Settings General 
+            </h1>
+            
+        </div>
+        <div class="table-responsive">
+
+            <table class="table"> 
+                    <tbody>
+                          <tr>
+                            <td></td>
+                            <td><a href="/edit_name"><label class="mdi mdi-border-color"></label></a></td>
+                            <td>{{user.name}} {{user.lastname}}</td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td><a href="/edit_birtday"><label class="mdi mdi-border-color"></label></a></td>
+                            <td>  <input type="date" value="{{user.birtday}}"></td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td><a href="/edit_email"><label class="mdi mdi-border-color"></label></a></td>
+                            <td width="nowrap"#>{{user.email}}</td>
+                          </tr>
+                          <tr>
+                            <td></td>
+                            <td><a href="/edit_user"><label class="mdi mdi-border-color"></label></a></td> 
+                            <td><small>{{user.user}}</small></td>
+                          </tr>
+                           
+                        </tbody>
+                      </table>
+                    </div>

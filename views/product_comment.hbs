@@ -1,0 +1,130 @@
+<div class="main-panel">
+   
+<div class="card">
+    <div class="card-body" style=" border-radius: 2px;"> 
+        <a href="/profile/{{publication.idUser.user}}/{{idUser._id}}">
+            <img class="img-xs rounded-circle " src="/data_files_/{{publication.idUser.user}}/Images/{{publication.idUser.photo}}" alt="">
+            <span class="count bg-success"></span> 
+        </a>
+    <div class="dropdown show"  style="position: relative; float: right;">  
+        <button type="button" class="btn btn-xs btn-success dropdown-toggle" id="dropdownMenuIconButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="mdi mdi-heart"></i>
+        </button> 
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2" style="">  
+        <a class="dropdown-item" href="/publication/privacity/{{publication._id}}/1">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                Public
+                {{#if publication.privacity.public}}
+                    <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                {{/if}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/publication/privacity/{{_id}}/2">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    My public
+                    {{#if publication.privacity.my_public}}
+                        <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                    {{/if}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/publication/privacity/{{_id}}/3">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">
+                    Private (Just me) 
+                    {{#ifE publication.privacity.private}}
+                        <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+                    {{/ifE}}
+                </font>
+            </font>
+        </a>
+        <a class="dropdown-item" href="/edit_publication/{{publication._id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></a> 
+        <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/delete_publication/{{publication._id}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Remove</font></font></a>
+        </div> 
+    </div>
+    <br>  
+    <div class="row">
+      <a href="/profile/{{publication.idUser.user}}/{{publication.idUser._id}}"><font style="font-size: 10px; color:#000;">{{publication.idUser.name}} {{publication.idUser.lastname}}</font></a>
+    </div>    
+    <button style="position: relative; float: right;"class="btn p-0" type="button" id="cardOpt6"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <a href="/koopus/publication/{{publication._id}}">
+      <div class="slider-container">   
+        {{#each publication.archive.images}}
+          <img
+            class="slider-item" 
+            src="{{this}}" alt="1"
+          />
+        {{/each}} <br><br> 
+      </div>  
+    </a> 
+    <p>{{publication.description}}</p><font style="font-size: 10px; color:#000;">{{timeago publication.datepublication}}</font>
+</div>  
+<div class="btn-group" role="group" aria-label="Ejemplo básico">
+  <button type="button" class="btn btn-outline-secondary">
+    <i class="mdi mdi-heart-outline"></i>
+  </button>
+    <a href="/koopus/publication/{{publication._id}}">
+      <button type="button" class="btn btn-outline-secondary">
+        <i class="mdi mdi-comment-text"></i>
+      </button>
+    </a>
+ <button type="button" class="btn btn-outline-secondary">
+    <i class="mdi mdi-clock"></i>
+  </button> 
+</div>
+<form action="/publication/{{publication._id}}/comment"  method="POST">
+    <div class="input-group"> 
+        <input type="text" name="comment" class="form-control" placeholder="Your comment" aria-label="Nombre de usuario">
+        <button type="submit" class="btn btn-inverse-success btn-icon">
+            <i class="mdi mdi-send"></i>
+        </button>
+    </div> 
+</form> 
+ <!--================PUBLICATIONS================-->
+<style>
+  .slider-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  overflow-x: scroll
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-type: x mandatory;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-align: center;
+}
+.form-control{
+  background-color: rgb(255, 255, 255);
+  border: rgba(0, 0, 0, 0);
+}
+</style> 
+
+</div>
+<div class="container">
+  {{#each comment}}
+    <a href=""><small for="" style="">{{idUser.name}} {{idUser.lastname}}</small></a><br><label style="font-size: 11px ;">{{comment}} <font style="font-size: 10px; color:#000;"><br> {{timeago datepublication}}</font></label><br>
+  {{/each}}
+</div></div>

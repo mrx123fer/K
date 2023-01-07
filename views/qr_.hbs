@@ -1,0 +1,39 @@
+<!-- partial -->
+<div class="main-panel">
+    <div class="container" ><br>
+        <h2 class="text-center">QR GENERATE</h2>
+        
+        <p class="text-center">Genera tus propios codigos QR</p>
+        <div class="container">
+            <a href="/my_qr">
+                <button type="button" class="btn btn-outline btn-fw" style="background-color:#434a54;">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;">My QR</font>
+                    </font>
+                </button>
+            </a>
+            
+        </div>
+        <br>
+        <div style="display: flex; justify-content: center;">
+            <form id="qr_generate"class="col-12">
+                <input style="position: center;" type="text" id="name" placeholder="Name" class="col-12"><br><br>
+                <input style="position: center;" type="text" id="contend" placeholder="Text, url, etc..." class="col-12"><br><br>
+                <div style="text-align: center;">
+                    <button type="submit">Generate</button>
+                    <a id="myqrd"  >
+                    <button id="btnmyqrd" type="button" disabled class="button">Download</button>
+                </a>
+                </div>
+                
+            </form>
+            
+        </div><br>
+        <div style="display: flex; justify-content: center;">
+                        <img id="myqr" src="\images\perro.jpg" width="90%" alt="">
+                    </div><br>
+                    
+    </div>
+</div>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script src="/js/forms.js"></script>

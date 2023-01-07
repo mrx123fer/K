@@ -1,0 +1,54 @@
+
+<div class="main-panel">
+    <div class="col-md-12">
+        <br>
+         <div>
+            <h1>
+                <a href="/setting/general"><label class="mdi mdi-keyboard-backspace"></label> </a>
+                  Settings General 
+            </h1>
+            
+        </div>
+        <div class="table-responsive">
+            
+                <table class="table" > 
+                <tbody> 
+                     <form action="/update_direction" method="POST" >
+                        <tr>
+                            <td>
+                                <select class="col-12" name="country" id="">
+                                    <option selected value="{{us.direction.country}}"></option>
+                                    <option value="México">México</option>
+                                    {{#each location.country}}
+                                        <select name="" id="">{{country.name}}</select>
+                                    {{/each}}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr> 
+                            <td>
+                                <select class="col-12" name="state" id="">
+                                    <option selected value="{{us.direction.state}}"></option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    {{#each state}}
+                                        <select name="" id="">{{country.state}}</select>
+                                    {{/each}}
+                                </select>
+                            </td>  
+                        </tr>  
+                        <tr> 
+                            <td>
+                                <select class="col-12" name="municipality" id="">
+                                    <option selected value="{{us.direction.municipality}}"></option>
+                                    <option value="San Juan del Río">San Juan del Río</option>
+                                    <option value=""></option>
+                                    {{#each municipaly}}
+                                        <select name="" id="">{{municipality.name}}</select>
+                                    {{/each}}
+                                </select>
+                                <br><br><button type="submit" class="btn btn-info btn-rounded btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actualizar</font></font></button></td> 
+                        </tr>
+                    </form>  
+                </tbody>
+            </table> 
+        </div>  

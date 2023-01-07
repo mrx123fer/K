@@ -1,0 +1,321 @@
+<style>
+    .btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+</style>
+<div class="main-panel">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-group">
+          <label><font style="vertical-align: inherit;"><h2>Post your notes</h2></font></label>
+          <br>
+          <form  action="/academy/create_publication" method="POST" enctype="multipart/form-data"> 
+            <div class="btn-group" role="group" style="float: right; color:#000;" aria-label="Ejemplo básico">  
+              <span class="btn btn-file">
+                <h3 style="color:#000;"><i class="mdi mdi-attachment"></i></h3><input name="archive" id="archive" type="file" multiple>
+              </span>
+              <span class="btn btn-file">
+                <h3 style="color:#000;"><i class="mdi mdi-upload btn-icon-prepend"></i></h3><input name="pdf" type='file' id="pdf" accept="application/pdf"  multiple/>
+              </span> 
+              <span class="btn btn-file">
+                <h3 style="color:#000;"><i class="mdi mdi-camera-enhance"></i></h3><input name="image" id="image" type="file" multiple>
+              </span>  
+              <span class="btn btn-file">
+                <h3 ><i id="add_friend" class="mdi mdi-account-plus"></i></h3>
+              </span>   
+            </div> 
+            <div id="div_add" class="input-group" style="display: none;"> 
+              <input id="myInput" class="form-control form-control-lg campo" type="text"  placeholder="Country"> 
+              <br><br>
+            </div>
+            <ul class="sugerencias"></ul>
+            <datalist id="datalist"></datalist> <br>
+            <div class="input-group"> 
+              <input type="text" name="description" class="form-control form-control-lg" placeholder="¿Que estas publicando?" aria-label="Nombre de usuario">
+              <button type="submit"  >Send</button>
+            </div>
+          </form>
+          <img id="blah"/>
+        </div>
+      </div>
+    </div>
+<br>
+<!--================PUBLICATIONS================-->
+<style>
+  .slider-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow-x: scroll;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  overflow-x: scroll
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-type: x mandatory;
+}
+
+.slider-container img {
+  flex: 0 0 100%;
+  width: 100%;
+  object-fit: cover;
+
+  /* Vamos a añadir esto 👇 */
+  scroll-snap-align: center;
+}
+.form-control{
+  background-color: rgb(255, 255, 255);
+  border: rgba(0, 0, 0, 0);
+}
+</style> 
+{{#each publications}}
+<div class="card">
+  <div class="card-body" style=" border-radius: 2px;"> 
+  <a href="/profile/{{idUser.user}}/{{idUser._id}}">
+    <img class="img-xs rounded-circle " src="/data_files_/{{idUser.user}}/Images/{{idUser.photo}}" alt="">
+    <span class="count bg-success"></span> 
+  </a>
+  <div class="dropdown show"  style="position: relative; float: right;">  
+    <button type="button" class="btn btn-xs btn-success dropdown-toggle" id="dropdownMenuIconButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="mdi mdi-heart"></i>
+    </button> 
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuOutlineButton2" style="">  
+      <a class="dropdown-item" href="/chat/{{idUser.user}}/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Send a message to seller</font></font></a>
+      <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Find similar</font></font></a> 
+      <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reportar</font></font></a>
+      </div> 
+    </div>
+    <br>  
+    <div class="row">
+      <a href="/profile/{{idUser.user}}/{{idUser._id}}"><font style="font-size: 10px; color:#000;">{{idUser.name}} {{idUser.lastname}}</font></a>
+    </div>    
+    <button style="position: relative; float: right;"class="btn p-0" type="button" id="cardOpt6"  data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    <a href="/koopus/publication/{{_id}}">
+      <div class="slider-container">   
+        {{#each archive.images}}
+          <img
+            class="slider-item" 
+            src="{{this}}" alt="1"
+          />
+        {{/each}} <br><br> 
+      </div>  
+   </a> 
+        <p>{{description}}</p><font style="font-size: 10px; color:#000;">{{timeago datepublication}}</font>
+      </div>  
+<div class="btn-group" role="group" aria-label="Ejemplo básico">
+  <button type="button" class="btn btn-outline-secondary">
+    <i class="mdi mdi-heart-outline"></i>
+  </button>
+    <a href="/koopus/publication/{{_id}}">
+      <button type="button" class="btn btn-outline-secondary">
+        <i class="mdi mdi-comment-text"></i>
+      </button>
+    </a>
+ <div class="dropdown">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuIconButton5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="mdi mdi-share"></i>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuIconButton5" style=""> 
+                              <a onclick="recom_my_profile()" data-id="{{_id}}" class="dropdown-item">Recommended in my profile</a>
+                              <script>
+                                function recom_my_profile(){
+                                  const btn_recom_my_profile = document.getElementById('recom_my_profile')
+                                  btn_recom_my_profile.addEventListener('click',(e)=>{
+                                    const data={} 
+                                    data = e.target.parentElement.parentElement;
+                                    id_public = producto.querySelector('a').getAttribute('data-id'); 
+                                    data.id=id_public;
+                                    console.log(data) 
+                                  })
+                                }
+                              </script>
+                              <a id="recom_to_friend" class="dropdown-item" href="#">Recommended to friend</a> 
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                          </div>
+  <br>
+</div>
+<form action="/publication/{{_id}}/comment"  method="POST">
+  <div class="input-group"> 
+    <input type="text" name="comment" class="form-control" placeholder="Your comment" aria-label="Nombre de usuario">
+      <button type="submit" class="btn btn-inverse-success btn-icon">
+        <i class="mdi mdi-send"></i>
+      </button>
+    </div>
+  </div>
+  </form>
+
+      
+      <br>
+{{/each}}
+
+<!--============================================-->
+
+
+
+  </div>
+</div>
+<script>
+         function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#blah')
+                        .attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        } 
+        const btnAddFriend = document.getElementById('add_friend')
+        btnAddFriend.addEventListener('click', (fun) =>{console.log('Aparece')
+            let status = document.getElementById('div_add').style.display
+            if(status=='none'){
+                document.getElementById('div_add').style.display=''
+            }else if(status==''){console.log('Desaparece')
+                document.getElementById('div_add').style.display='none'
+            }
+        })
+        
+ 
+     
+</script>
+
+<script>
+function autocomplete(inp, arr) {
+  /*the autocomplete function takes two arguments,
+  the text field element and an array of possible autocompleted values:*/
+  var currentFocus;
+  /*execute a function when someone writes in the text field:*/
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+      /*close any already open lists of autocompleted values*/
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+      /*create a DIV element that will contain the items (values):*/
+      a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+      /*append the DIV element as a child of the autocomplete container:*/
+      this.parentNode.appendChild(a);
+      /*for each item in the array...*/
+      for (i = 0; i < arr.length; i++) {
+        /*check if the item starts with the same letters as the text field value:*/
+        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          /*create a DIV element for each matching element:*/
+          b = document.createElement("DIV");
+          /*make the matching letters bold:*/
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          /*insert a input field that will hold the current array item's value:*/
+          b.innerHTML += "<input type='hidden' value=''" + arr[i] + "'>";
+          /*execute a function when someone clicks on the item value (DIV element):*/
+          b.addEventListener("click", function(e) {
+              /*insert the value for the autocomplete text field:*/
+              inp.value = this.getElementsByTagName("input")[0].value;
+              /*close the list of autocompleted values,
+              (or any other open lists of autocompleted values:*/
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+
+/*An array containing all the country names in the world:*/
+var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+
+/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+autocomplete(document.getElementById("myInput"), countries);
+</script>
+
+<script>
+
+
+</script>

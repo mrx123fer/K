@@ -1,0 +1,23 @@
+
+<div class="main-panel">
+    <div class="col-md-12">
+        <br>
+         <div>
+            <h1>
+                <a href="/setting/general"><label class="mdi mdi-keyboard-backspace"></label> </a>
+                  Settings General 
+            </h1>
+            
+        </div>
+        <div class="table-responsive">
+            
+                <table class="table"> 
+                <tbody> 
+                    <tr> 
+                        <form action="/update_phone" method="POST" >
+                            <td><input type="text" name="phone" id='phone' value="{{us.phone}}"> <input type="text" name="lastnames" value="{{us.phone}}" id="lastnames"><br><p><small>Depues de actualizar no podras cambiarlo hasta despues de 15 dias</small></p><br><button type="submit" class="btn btn-info btn-rounded btn-fw"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actualizar</font></font></button></td> 
+                        </form>
+                    </tr>  
+                </tbody>
+            </table> 
+        </div>  
